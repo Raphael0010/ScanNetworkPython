@@ -1,5 +1,5 @@
 # Scan Network 🛰
-❗️Only work with Unix system ❗️
+❗️Only work with Unix system ❗️  
 Scan your network easily with python3
 This is my first project in Python, be kind 🤕
 

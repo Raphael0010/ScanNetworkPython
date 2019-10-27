@@ -97,45 +97,45 @@ def scanPortAllIp(ip):
         scanOneIpPort(i, rangePort)
 
 
-subprocess.call('clear', shell=True)
-print("███████╗ ██████╗ █████╗ ███╗   ██╗    ███╗   ██╗███████╗████████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗")
-print("██╔════╝██╔════╝██╔══██╗████╗  ██║    ████╗  ██║██╔════╝╚══██╔══╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝")
-print("███████╗██║     ███████║██╔██╗ ██║    ██╔██╗ ██║█████╗     ██║   ██║ █╗ ██║██║   ██║██████╔╝█████╔╝")
-print("╚════██║██║     ██╔══██║██║╚██╗██║    ██║╚██╗██║██╔══╝     ██║   ██║███╗██║██║   ██║██╔══██╗██╔═██╗")
-print("███████║╚██████╗██║  ██║██║ ╚████║    ██║ ╚████║███████╗   ██║   ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗")
-print("╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝  ╚═══╝╚══════╝   ╚═╝    ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝")
-
-print('[+] Choice')
-print('1 - Scan Network')
-ipAvaible = []
-globalgateway = ""
-choice = int(input("Choice : "))
-subprocess.call('clear', shell=True)
-if choice == 1:
-    ipAvaible = scanNetwork()
-    print("--- ", len(ipAvaible), "Host available ---")
-    count = 0
-    for x in ipAvaible:
-        count += 1
-        if globalgateway == x:
-            if count == len(ipAvaible):
-                print(x, "-> gateway")
-            else:
-                print(x, "-> gateway\n")
-        else:
-            if count == len(ipAvaible):
-                print(x)
-            else:
-                print(x,)
-    print("----------------------")
+if __name__ == "__main__":
+    subprocess.call('clear', shell=True)
+    print("███████╗ ██████╗ █████╗ ███╗   ██╗    ███╗   ██╗███████╗████████╗██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗")
+    print("██╔════╝██╔════╝██╔══██╗████╗  ██║    ████╗  ██║██╔════╝╚══██╔══╝██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝")
+    print("███████╗██║     ███████║██╔██╗ ██║    ██╔██╗ ██║█████╗     ██║   ██║ █╗ ██║██║   ██║██████╔╝█████╔╝")
+    print("╚════██║██║     ██╔══██║██║╚██╗██║    ██║╚██╗██║██╔══╝     ██║   ██║███╗██║██║   ██║██╔══██╗██╔═██╗")
+    print("███████║╚██████╗██║  ██║██║ ╚████║    ██║ ╚████║███████╗   ██║   ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗")
+    print("╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝    ╚═╝  ╚═══╝╚══════╝   ╚═╝    ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝")
     print('[+] Choice')
-    print('1 - Scan port ( 1 IP )')
-    print('2 - Scan port ( All IP )')
-    choice = int(input())
+    print('1 - Scan Network')
+    ipAvaible = []
+    globalgateway = ""
+    choice = int(input("Choice : "))
     subprocess.call('clear', shell=True)
     if choice == 1:
-        ipChoiceScan = input("Which ip would be scanned : ")
+        ipAvaible = scanNetwork()
+        print("--- ", len(ipAvaible), "Host available ---")
+        count = 0
+        for x in ipAvaible:
+            count += 1
+            if globalgateway == x:
+                if count == len(ipAvaible):
+                    print(x, "-> gateway")
+                else:
+                    print(x, "-> gateway\n")
+            else:
+                if count == len(ipAvaible):
+                    print(x)
+                else:
+                    print(x,)
+        print("----------------------")
+        print('[+] Choice')
+        print('1 - Scan port ( 1 IP )')
+        print('2 - Scan port ( All IP )')
+        choice = int(input())
         subprocess.call('clear', shell=True)
-        scanOneIpPort(ipChoiceScan)
-    if choice == 2:
-        scanPortAllIp(ipAvaible)
+        if choice == 1:
+            ipChoiceScan = input("Which ip would be scanned : ")
+            subprocess.call('clear', shell=True)
+            scanOneIpPort(ipChoiceScan)
+        if choice == 2:
+            scanPortAllIp(ipAvaible)
